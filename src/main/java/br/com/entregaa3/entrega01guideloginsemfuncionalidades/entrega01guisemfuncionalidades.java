@@ -4,6 +4,8 @@
  */
 package br.com.entregaa3.entrega01guideloginsemfuncionalidades;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 823212965
@@ -47,6 +49,11 @@ public class entrega01guisemfuncionalidades extends javax.swing.JPanel {
         entrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         entrarButton.setForeground(new java.awt.Color(255, 255, 255));
         entrarButton.setText("Entrar");
+        entrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarButtonActionPerformed(evt);
+            }
+        });
 
         senhaPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +144,22 @@ public class entrega01guisemfuncionalidades extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaPasswordFieldActionPerformed
 
+    private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
+        // TODO add your handling code here:
+        if(loginTextField.getText().equals("Admin")&& new String (senhaPasswordField.getPassword()).equals("Admin")){
+        JOptionPane.showMessageDialog(null, "Bem vindo");
+            
+        }else {
+                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
+                }
+    }//GEN-LAST:event_entrarButtonActionPerformed
+
+    public static void main (String args []){
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            new entrega01guisemfuncionalidades().setVisible(true);
+        });
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton entrarButton;
