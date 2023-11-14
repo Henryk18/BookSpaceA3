@@ -15,7 +15,7 @@ public class UsuarioDAO {
         this.properties = properties;
     }
     
-    public Usuário existe(Usuário u) throws Exception{
+    public Usuario existe(Usuario u) throws Exception{
         //1. Construir uma fábrica de conexões
         var fabrica = new ConnectionFactory(properties);
         //2. Estabelecer uma conexão com o banco

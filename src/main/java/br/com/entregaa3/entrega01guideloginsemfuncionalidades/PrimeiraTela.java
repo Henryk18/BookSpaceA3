@@ -35,7 +35,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginTextFIeld = new javax.swing.JTextField();
+        loginTextField = new javax.swing.JTextField();
         senhaPasswordField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -87,7 +87,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                             .addComponent(jButton1))
-                        .addComponent(loginTextFIeld, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(loginTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(senhaPasswordField, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -104,7 +104,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginTextFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel3)
                 .addGap(1, 1, 1)
@@ -120,18 +120,31 @@ public class PrimeiraTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(loginTextFIeld.getText().equals("Admin")&& new String (senhaPasswordField.getPassword()).equals("Admin")){
-        JOptionPane.showMessageDialog(null, "Bem vindo");
-        var segundaTela = new SegundaTela();
-        segundaTela.setVisible(true);
-        dispose();
-            
-        }else {
-                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
+        try{
+
+            //pegar o login
+            String login = loginTextField.getText();
+            //pegar a senha
+            String senha = 
+                    new String(senhaPasswordField.getPassword());
+            var usuario = new Usuario(login, senha);
+            var dao = new UsuarioDAO(properties);
+            if(dao.existe(usuario) != null){
+                JOptionPane.showMessageDialog(null, "Bem vindo");
+                 var segundaTela = new SegundaTela();
+                  segundaTela.setVisible(true);
+                  dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Usuário inválido");
+            }
+        }
+        catch(Exception e){
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     
+     
     private void senhaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaPasswordFieldActionPerformed
@@ -177,7 +190,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField loginTextFIeld;
+    private javax.swing.JTextField loginTextField;
     private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
 }

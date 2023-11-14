@@ -8,8 +8,15 @@ package br.com.entregaa3.entrega01guideloginsemfuncionalidades;
  *
  * @author 823135401
  */
-public class Usuário {
+public class Usuario {
     private String login, senha;
+
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+    
+    
 
     public String getLogin() {
         return login;
