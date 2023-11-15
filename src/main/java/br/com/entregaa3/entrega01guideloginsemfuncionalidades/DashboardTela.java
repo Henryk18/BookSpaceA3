@@ -15,6 +15,7 @@ public class DashboardTela extends javax.swing.JFrame {
      */
     public DashboardTela() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -31,6 +32,8 @@ public class DashboardTela extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro usuario e livro"));
 
         jButton1.setText("Cadastrar usuário");
 
@@ -71,7 +74,7 @@ public class DashboardTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

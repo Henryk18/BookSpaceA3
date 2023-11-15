@@ -2,8 +2,8 @@
 
 USE GERENCIAMENTO_DE_LIVROS;
 
-CREATE USER usuário identified by 'biblioteca123';
-CREATE USER admnistrador identified by 'adm2023';
+CREATE USER usuário identified by 'Admin';
+CREATE USER admnistrador identified by 'Admin';
 
 CREATE TABLE usuários(
 	id INT NOT NULL AUTO_INCREMENT,

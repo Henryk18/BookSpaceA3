@@ -19,11 +19,11 @@ public class ConnectionFactory {
     
     public ConnectionFactory (java.util.Properties properties){
         this(
-            properties.getProperty("DB_HOST:mysql-31e83d87-henrykbagda-3a17.aivencloud.com"),
-            properties.getProperty("DB_PORT:13836 "),
-             properties.getProperty("DB_NAME:defaultdb"),
-            properties.getProperty("DB_USER:avnadmin"),
-            properties.getProperty("DB_PASSWORD:AVNS_McoQZaQEpWpelcBHYEn")
+            properties.getProperty("DB_HOST"),
+            properties.getProperty("DB_PORT"),
+             properties.getProperty("DB_NAME"),
+            properties.getProperty("DB_USER"),
+            properties.getProperty("DB_PASSWORD")
         );
     }
     public ConnectionFactory(
@@ -42,7 +42,7 @@ public class ConnectionFactory {
     public Connection conectar() throws Exception{
         return DriverManager.getConnection(
             String.format(
-                "jdbc:postgresql://%s:%s/%s",
+                "jdbc:mysql://%s:%s/%s",
                 host,
                 port,
                 db

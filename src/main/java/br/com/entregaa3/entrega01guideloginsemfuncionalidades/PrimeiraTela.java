@@ -19,6 +19,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
      */
     public PrimeiraTela() {
         initComponents();
+        setLocationRelativeTo(null);
     }
         public PrimeiraTela(java.util.Properties properties){
         this();
@@ -131,8 +132,8 @@ public class PrimeiraTela extends javax.swing.JFrame {
             var dao = new UsuarioDAO(properties);
             if(dao.existe(usuario) != null){
                 JOptionPane.showMessageDialog(null, "Bem vindo");
-                 var segundaTela = new SegundaTela();
-                  segundaTela.setVisible(true);
+                 var dashboardTela = new DashboardTela();
+                  dashboardTela.setVisible(true);
                   dispose();
             }
             else{
@@ -140,8 +141,9 @@ public class PrimeiraTela extends javax.swing.JFrame {
             }
         }
         catch(Exception e){
-
+            e.printStackTrace();
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
      
      
